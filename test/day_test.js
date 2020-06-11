@@ -87,7 +87,7 @@ describe("Day", () => {
       expect(shallowDay.hasClass(className)).to.equal(false);
     });
 
-    it("should not apply the keyboard-selected class if in inline mode", () => {
+    it("should apply the keyboard-selected class if in inline mode", () => {
       const day = newDate();
       const selected = addDays(day, 1);
       const shallowDay = renderDay(day, {
@@ -95,7 +95,7 @@ describe("Day", () => {
         preSelection: day,
         inline: true
       });
-      expect(shallowDay.hasClass(className)).to.equal(false);
+      expect(shallowDay.hasClass(className)).to.equal(true);
     });
   });
 
@@ -508,18 +508,29 @@ describe("Day", () => {
   });
 
   describe("aria-label", () => {
-    const ariaLabelPrefixWhenEnabled = "A prefix in my native language desbribing that the date can be selected";
-    const ariaLabelPrefixWhenDisabled = "A prefix in my native language desbribing that the date can not be selected";
+    const ariaLabelPrefixWhenEnabled =
+      "A prefix in my native language desbribing that the date can be selected";
+    const ariaLabelPrefixWhenDisabled =
+      "A prefix in my native language desbribing that the date can not be selected";
 
     it("should have the correct provided prefix if date is not disabled", () => {
-      const shallowDay = renderDay(newDate(), { ariaLabelPrefixWhenEnabled: ariaLabelPrefixWhenEnabled });
-      expect(shallowDay.html().indexOf(`aria-label="${ariaLabelPrefixWhenEnabled}`)).not.equal(-1);
+      const shallowDay = renderDay(newDate(), {
+        ariaLabelPrefixWhenEnabled: ariaLabelPrefixWhenEnabled
+      });
+      expect(
+        shallowDay.html().indexOf(`aria-label="${ariaLabelPrefixWhenEnabled}`)
+      ).not.equal(-1);
     });
 
     it("should have the correct provided prefix if date is disabled", () => {
       const day = newDate();
-      const shallowDay = renderDay(day, { ariaLabelPrefixWhenDisabled: ariaLabelPrefixWhenDisabled, excludeDates: [day] });
-      expect(shallowDay.html().indexOf(`aria-label="${ariaLabelPrefixWhenDisabled}`)).not.equal(-1);
+      const shallowDay = renderDay(day, {
+        ariaLabelPrefixWhenDisabled: ariaLabelPrefixWhenDisabled,
+        excludeDates: [day]
+      });
+      expect(
+        shallowDay.html().indexOf(`aria-label="${ariaLabelPrefixWhenDisabled}`)
+      ).not.equal(-1);
     });
   });
 

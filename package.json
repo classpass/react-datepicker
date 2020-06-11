@@ -1,8 +1,8 @@
 {
   "author": "HackerOne",
-  "name": "react-datepicker",
+  "name": "@classpass/react-datepicker",
   "description": "A simple and reusable datepicker component for React",
-  "version": "3.0.0",
+  "version": "3.0.0-hotfixed",
   "license": "MIT",
   "homepage": "https://github.com/Hacker0x01/react-datepicker",
   "main": "dist/index.js",
@@ -29,7 +29,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/Hacker0x01/react-datepicker.git"
+    "url": "git://github.com/classpass/react-datepicker.git"
   },
   "bugs": {
     "url": "https://github.com/Hacker0x01/react-datepicker/issues"
